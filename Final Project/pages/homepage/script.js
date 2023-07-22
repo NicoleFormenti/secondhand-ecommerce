@@ -8,12 +8,13 @@ function appendChild(title, year, quantity, price, imageSource) {
     const h3 = document.createElement('h3');
     const h4 = document.createElement('h4');
     const img = document.createElement('img');
-    
+    const btn = document.createElement('button');    
     h1.innerHTML = title;
     h2.innerHTML = year;
     h3.innerHTML = quantity;
     h4.innerHTML = price;
     img.src = imageSource;
+    btn.innerHTML = 'Add to cart';
     h2.insertAdjacentText = h2.insertAdjacentText('afterbegin', 'Production Year:');
     h3.insertAdjacentText = h3.insertAdjacentText('afterbegin', 'Available Stock:');
     h4.insertAdjacentText = h4.insertAdjacentText('afterbegin', 'Price in £:');
@@ -23,6 +24,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     h1.appendChild(h2);
     h2.appendChild(h3);
     h3.appendChild(h4);
+    h4.appendChild(btn);
 
     //only 10 movies should appear on page 1 so we splice the array
     console.log(movieList.slice(0, 10));
