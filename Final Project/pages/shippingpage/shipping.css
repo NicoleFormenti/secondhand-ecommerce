@@ -1,0 +1,113 @@
+:root {
+    --crimson: #c50000;
+    --darkred: #670000;
+    --white: #ffffff;
+    --darkgrey: #696969;
+    --black: #000000;
+}
+body    {
+    font-family: 'Pangolin', cursive;
+    font-size: 28px;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--black);
+}
+.shipping_info  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1  {
+    color: var(--crimson);
+}
+p   {
+    color: var(--darkgrey);
+    text-align: center;
+}
+.logo   {
+    height: 200px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 150px;
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: var(--darkred);
+    color: var(--darkgrey);
+    margin: 0px;
+}
+ul  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    padding: 5px;
+    list-style: none;
+    font-size: 32px;
+}
+a   {
+    text-decoration: none;
+    color: #696969;
+}
+a:hover:visited {
+    color: #696969;
+}
+footer  {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    background-color: var(--darkgrey);
+    color: var(--white);
+}
+.contacts   {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+@media screen and (max-width: 375px) {
+    header {
+        height: 100px;
+    }
+    .logo   {
+        margin-left: 20px;
+        column-gap: 0px;
+    }
+    #image1, #image3 {
+        display: none;
+    }
+    #image2 {
+        width: auto;
+        height: 100px;
+        
+    }
+    ul  {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        list-style: none;
+        font-size: 16px;
+    }
+    footer {
+        font-size: 16px;
+        font-weight: normal;
+        margin-left: 0px;
+        width: 375px;
+    }
+    .contacts   {
+        display: flex;
+        flex-direction: column;
+    }
+}
