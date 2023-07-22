@@ -187,6 +187,7 @@ img {
     cursor: pointer;
 }
 footer  {
+    margin-bottom: 0px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -208,11 +209,15 @@ footer  {
 @media screen and (max-width: 375px) {
     body {
         width: 375px;
+        margin: 0px;
     }
     header {
         height: 100px;
+        width: 360px;
     }
     .logo   {
+        width: 360px;
+        height: 100px;
         margin-left: 20px;
         column-gap: 0px;
     }
@@ -223,6 +228,41 @@ footer  {
         width: auto;
         height: 100px;
         
+    }
+    .filtered_list {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        width: 360px;
+    }
+    button {
+        border-radius: 16px;
+        background-color: var(--darkgrey);
+        color: var(--white);
+        font-size: 12px;
+        width: 100px;
+    }
+    #searchbar {
+        width: 70px;
+    }
+    .cart {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        row-gap: 10px;
+        margin-top: 5px;
+    }
+    #btn_cart {
+        height: 40px;
+        width: 40px;
+        margin: 0px;
+        padding: 0px;
+    }
+    #btn_clear_cart {
+        height: 40px;
+        width: 40px;
+        margin: 0px;
+        padding: 0px;
     }
     ul  {
         display: flex;
@@ -239,6 +279,7 @@ footer  {
         height: 400px;
         align-items: flex-start;
         text-align: justify;
+        flex-direction: column;
         
     }
     footer {
@@ -255,5 +296,6 @@ footer  {
         padding: 0px;
         width: 130px;
         height: 200px
-    };
+    }
+    
 }

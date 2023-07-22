@@ -82,7 +82,6 @@ function searchMovie() {
 }
 
 //pagination:
-//la situazione normale deve essere su pagina 1, pagina 2 appare solo se si schiaccia sul due 
 function pageOne() {
     const page = 1;
     const step = 10;
