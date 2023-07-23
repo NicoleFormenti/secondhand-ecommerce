@@ -12,6 +12,76 @@ body    {
     height: 100%;
     background-color: var(--black);
 }
+header {
+    display: flex;
+    flex-direction: row;
+}
+.cart {
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+}
+#btn_cart   {
+    width: 80px;
+    height: 80px;
+    background-color: var(--darkgrey);
+    color: var(--white);
+    font-size: larger;
+    margin-top: 50px;
+    margin-left: 200px;
+    font-size: 20px;
+}
+#btn_clear_cart {
+    width: 80px;
+    height: 80px;
+    background-color: var(--crimson);
+    color: var(--white);
+    font-size: larger;
+    margin-top: 50px;
+    font-size: 20px;
+
+}
+.logo   {
+    height: 200px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 200px;
+}
+#image1, #image3 {
+    width: 200px;
+    height: 200px;
+    padding: 0px;
+}
+#image2 {
+    height: 200px;
+    width: auto;
+    padding: 0px;
+}
+#icon   {
+    height: 48px;
+    width: 48px;
+    padding: 0px;
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: var(--darkred);
+    color: var(--white);
+    margin: 0px;
+}
+button {
+    border-radius: 16px;
+    background-color: var(--darkgrey);
+    color: var(--white);
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 15px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: var(--crimson);
+}
 .container  {
     color: var(--darkgrey);
     text-align: center;
@@ -21,20 +91,6 @@ h1  {
 }
 img {
     image-rendering: optimizeQuality;
-}
-.logo   {
-    height: 200px;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: row;
-    column-gap: 150px;
-}
-nav {
-    width: 100%;
-    height: 50px;
-    background-color: var(--darkred);
-    color: var(--darkgrey);
-    margin: 0px;
 }
 ul  {
     display: flex;
@@ -78,8 +134,11 @@ footer  {
     }
     header {
         height: 100px;
+        width: 360px;
     }
     .logo   {
+        width: 360px;
+        height: 100px;
         margin-left: 20px;
         column-gap: 0px;
     }
@@ -109,5 +168,33 @@ footer  {
     .contacts   {
         display: flex;
         flex-direction: column;
+    }
+    .cart {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        row-gap: 10px;
+        margin-top: 5px;
+    }
+    #btn_cart {
+        height: 40px;
+        width: 40px;
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+    }
+    #btn_clear_cart {
+        height: 40px;
+        width: 40px;
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+    }
+    button {
+        border-radius: 16px;
+        background-color: var(--darkgrey);
+        color: var(--white);
+        font-size: 12px;
+        width: 100px;
     }
 }
