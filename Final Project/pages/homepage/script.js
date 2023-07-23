@@ -97,5 +97,10 @@ function pageTwo() {
     const start = page * step - step;
     const end = start + step;
 
-    console.log(movieList.slice(start, end));
+    const secondpage = movieList.slice(start, end);
+    console.log(secondpage);
+    return document.getElementById('dvd_list').innerHTML = secondpage;
 }
+/*for (let i =0; i > 10; i++) {
+    document.getElementById('dvd_list').innerHTML = secondpage;
+}*/
