@@ -9,6 +9,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     const h4 = document.createElement('h4');
     const img = document.createElement('img');
     const btn = document.createElement('button');    
+    h1.classList.add('titles');
     h1.innerHTML = title;
     h2.innerHTML = year;
     h3.innerHTML = quantity;
@@ -65,22 +66,6 @@ function sortPrice() {
     }
 }
 
-//search bar : 
-function searchMovie() {
-    let input = document.getElementById('searchbar').value
-    input=input.toLowerCase();
-    let search_title = document.getElementsByTagName('h1');
-      
-    for (i = 0; i < search_title.length; i++) { 
-        if (!search_title[i].innerHTML.toLowerCase().includes(input)) {
-            search_title[i].style.display="none";
-        }
-        else {
-            search_title[i].style.display="list-item";                 
-        }
-    }
-}
-
 //pagination:
 function pageOne() {
     const page = 1;
@@ -91,24 +76,33 @@ function pageOne() {
     const firstpage = movieList.slice(start, end);
     console.log(firstpage);
     let oneUl = document.createElement('ul');
-    oneUl.classList.add('page2');
+    oneUl.classList.add('paginationstyle');
+    
     for (let i = 0; i < firstpage.length; i++) {
         ul.innerHTML = '';
-        let li = document.createElement('li');
-        li.innerHTML = `
-            ${firstpage[i].title}
-            <img src=${firstpage[i].imageSource}>
-            Production Year: ${firstpage[i].year}
-            Available stock: ${firstpage[i].quantity}
-            Price in £: ${firstpage[i].price}
-        `
-        //secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource;
-        oneUl.appendChild(li);
-        
-        //appendChild(secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource);
+        let h1 = document.createElement('h1');
+        h1.classList.add('titles');
+        h1.innerHTML = `${firstpage[i].title}`;
+        oneUl.appendChild(h1);
+        let img = document.createElement('img');
+        img.src = `${firstpage[i].imageSource}`;
+        h1.appendChild(img);
+        let h2 = document.createElement('h2');
+        h2.innerHTML = `Production Year: ${firstpage[i].year}`;
+        h1.appendChild(h2);
+        let h3 = document.createElement('h3');
+        h3.innerHTML = `Available stock: ${firstpage[i].quantity}`;
+        h2.appendChild(h3);
+        let h4 = document.createElement('h4');
+        h4.innerHTML = `Price in £: ${firstpage[i].price}`;
+        h3.appendChild(h4);
+        let btn = document.createElement('button'); 
+        btn.innerHTML = `<button>Add to cart</button>`;
+        h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(oneUl);
 }
+
 
 function pageTwo() {
     const page = 2;
@@ -119,23 +113,44 @@ function pageTwo() {
     const secondpage = movieList.slice(start, end);
     console.log(secondpage);
     let newUl = document.createElement('ul');
-    newUl.classList.add('page2');
+    newUl.classList.add('paginationstyle');
     for (let i = 0; i < secondpage.length; i++) {
-        //document.getElementById('dvd_list').innerHTML = secondpage;
         ul.innerHTML = '';
-
-        let li = document.createElement('li');
-        li.innerHTML = `
-            ${secondpage[i].title}
-            <img src=${secondpage[i].imageSource}>
-            Production Year: ${secondpage[i].year}
-            Available stock: ${secondpage[i].quantity}
-            Price in £: ${secondpage[i].price}
-        `
-        //secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource;
-        newUl.appendChild(li);
-        
-        //appendChild(secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource);
+        let h1 = document.createElement('h1');
+        h1.classList.add('titles');
+        h1.classList.add('titles');
+        h1.innerHTML = `${secondpage[i].title}`;
+        newUl.appendChild(h1);
+        let img = document.createElement('img');
+        img.src = `${secondpage[i].imageSource}`;
+        h1.appendChild(img);
+        let h2 = document.createElement('h2');
+        h2.innerHTML = `Production Year: ${secondpage[i].year}`;
+        h1.appendChild(h2);
+        let h3 = document.createElement('h3');
+        h3.innerHTML = `Available stock: ${secondpage[i].quantity}`;
+        h2.appendChild(h3);
+        let h4 = document.createElement('h4');
+        h4.innerHTML = `Price in £: ${secondpage[i].price}`;
+        h3.appendChild(h4);
+        let btn = document.createElement('button'); 
+        btn.innerHTML = `<button id="b">Add to cart</button>`;
+        h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(newUl);
+}
+//search bar : 
+function searchMovie() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let search_title = document.getElementsByClassName('titles');
+      
+    for (i = 0; i < search_title.length; i++) { 
+        if (!search_title[i].innerHTML.toLowerCase().includes(input)) {
+            search_title[i].style.display="none";
+        }
+        else {
+            search_title[i].style.display="list-item";                 
+        }
+    }
 }

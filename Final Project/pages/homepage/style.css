@@ -123,6 +123,12 @@ a:hover:visited {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.paginationstyle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 h1 {
     width: 500px;
     height: 700px;
