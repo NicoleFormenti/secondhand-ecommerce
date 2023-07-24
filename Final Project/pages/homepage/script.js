@@ -16,6 +16,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     h4.innerHTML = price;
     img.src = imageSource;
     btn.innerHTML = 'Add to cart';
+    btn.classList.add('addcart');
     h2.insertAdjacentText = h2.insertAdjacentText('afterbegin', 'Production Year:');
     h3.insertAdjacentText = h3.insertAdjacentText('afterbegin', 'Available Stock:');
     h4.insertAdjacentText = h4.insertAdjacentText('afterbegin', 'Price in £:');
@@ -153,4 +154,30 @@ function searchMovie() {
             search_title[i].style.display="list-item";                 
         }
     }
+}
+
+// CART
+// add to cart: onclick event that calls a function with a localStorage.setItem('movieList', 'title')
+// remove from cart: localStorage.removeItem('title')
+// clear cart: localStorage.clear()
+
+//add to cart, the amount of titles added should appear here: <span class="total-count"></span>
+let element = document.getElementsByClassName('addcart');
+for( let i = 0; i < element.length; i++ ){
+    element[i].addEventListener("click", function populateCart(){
+    localStorage.setItem('title', movieList[i].title);
+    localStorage.setItem('price', movieList[i].price);
+    console.log(localStorage);
+  }); //so far, this sends title and price in the local storage, but still separate
+}
+// view what's in the cart, getting the items from the storage
+function viewCart() {
+    localStorage.getItem('title', movieList.title);
+    localStorage.getItem('price', movieList.price);
+    console.log(localStorage);
+}
+//clear cart
+function clearCart() {
+    localStorage.clear();
+    console.log(localStorage);
 }
