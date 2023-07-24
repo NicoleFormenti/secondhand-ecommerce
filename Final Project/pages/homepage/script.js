@@ -161,13 +161,16 @@ function searchMovie() {
 // remove from cart: localStorage.removeItem('title')
 // clear cart: localStorage.clear()
 
-//add to cart, the amount of titles added should appear here: <span class="total-count"></span>
+//add to cart, the price should appear here: <span class="total-count"></span>
 let element = document.getElementsByClassName('addcart');
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", function populateCart(){
     localStorage.setItem('title', movieList[i].title);
     localStorage.setItem('price', movieList[i].price);
     console.log(localStorage);
+    let p = document.getElementsByClassName('total-count');
+    console.log(p);
+    p.innerHTML = `${movieList[i].price}`;
   }); //so far, this sends title and price in the local storage, but still separate
 }
 // view what's in the cart, getting the items from the storage
