@@ -27,7 +27,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     h4.appendChild(btn);
 
     //only 10 movies should appear on page 1 so we splice the array
-    console.log(movieList.slice(0, 10));
+    //console.log(movieList.slice(0, 10));
     return movieList.slice(0, 10);
 
 }
@@ -87,8 +87,27 @@ function pageOne() {
     const step = 10;
     const start = page * step - step;
     const end = start + step;
-
-    console.log(movieList.slice(start, end));
+    
+    const firstpage = movieList.slice(start, end);
+    console.log(firstpage);
+    let oneUl = document.createElement('ul');
+    oneUl.classList.add('page2');
+    for (let i = 0; i < firstpage.length; i++) {
+        ul.innerHTML = '';
+        let li = document.createElement('li');
+        li.innerHTML = `
+            ${firstpage[i].title}
+            <img src=${firstpage[i].imageSource}>
+            Production Year: ${firstpage[i].year}
+            Available stock: ${firstpage[i].quantity}
+            Price in £: ${firstpage[i].price}
+        `
+        //secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource;
+        oneUl.appendChild(li);
+        
+        //appendChild(secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource);
+    }
+    document.getElementById('dvd_list').append(oneUl);
 }
 
 function pageTwo() {
@@ -96,11 +115,27 @@ function pageTwo() {
     const step = 10;
     const start = page * step - step;
     const end = start + step;
-
+    
     const secondpage = movieList.slice(start, end);
     console.log(secondpage);
-    return document.getElementById('dvd_list').innerHTML = secondpage;
+    let newUl = document.createElement('ul');
+    newUl.classList.add('page2');
+    for (let i = 0; i < secondpage.length; i++) {
+        //document.getElementById('dvd_list').innerHTML = secondpage;
+        ul.innerHTML = '';
+
+        let li = document.createElement('li');
+        li.innerHTML = `
+            ${secondpage[i].title}
+            <img src=${secondpage[i].imageSource}>
+            Production Year: ${secondpage[i].year}
+            Available stock: ${secondpage[i].quantity}
+            Price in £: ${secondpage[i].price}
+        `
+        //secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource;
+        newUl.appendChild(li);
+        
+        //appendChild(secondpage[i].title, secondpage[i].year, secondpage[i].quantity, secondpage[i].price, secondpage[i].imageSource);
+    }
+    document.getElementById('dvd_list').append(newUl);
 }
-/*for (let i =0; i > 10; i++) {
-    document.getElementById('dvd_list').innerHTML = secondpage;
-}*/
