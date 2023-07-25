@@ -37,6 +37,9 @@ header {
     font-size: larger;
     margin-top: 50px;
 }
+.addcart {
+    width: 200px;
+}
 .logo   {
     height: 200px;
     margin-left: 100px;

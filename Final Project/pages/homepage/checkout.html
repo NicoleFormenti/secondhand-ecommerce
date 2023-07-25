@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <!--revisit logo-->
+        <div class="logo">
+            <img id="image1" src="/Final Project/assets/photos/5a1d2106493434.3203065915118584382999.png" width="150px" height="200px">
+            <img id="image2" src="/Final Project/assets/photos/Welcome to Fright Train (1).png" alt="banner">
+            <img id="image3" src="/Final Project/assets/photos/5a1d2106493434.3203065915118584382999.png" width="150px" height="200px">
+        </div>
+        <div class="cart">
+            <button id="btn_cart" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart" onclick="viewCart()">
+                <a href="checkout.html">Cart (<span class="total-count"></span>)</a>
+            </button>
+            <button id="btn_clear_cart" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </header>
+    <nav>
+        <ul class="nav-links">
+            
+                <a href="/Final Project/pages/homepage/index.html">Shop</a>
+            
+                <a href="/Final Project/pages/aboutpage/about.html">About Us</a>
+            
+            
+                <a href="/Final Project/pages/shippingpage/shippinginfo.html">Shipping Info</a>
+            
+            
+                <a href="/Final Project/pages/contactpage/contact.html">Contact Us</a>
+            
+        </ul>
+    </nav>
+    <form onsubmit="infoSent()">
+        <div class="cko">Checkout</div>
+        <div class="form">
+            <!--Input for first name-->
+            <label for="firstname">Your first name</label>
+            <input type="text" id="firstname" name="name" required minlength="2" maxlength="25" placeholder="John">
+            <!--Input for last name-->
+            <label for="lastname">Your last name</label>
+            <input type="text" id="lastname" name="name" required minlength="2" maxlength="25" placeholder="Doe">
+            <!--Input for email-->
+            <label for="email">Your email address</label>
+            <input type="text" name="email" id="email" required placeholder="johndoe@ipsum.com">
+            <!--Input for phone number-->
+            <label for="phonenumber">Your phone number</label>
+            <input type="text" name="phonenumber" id="phonenumber" required placeholder="123456789">
+        </div>
+        <!--Input for button-->
+        <button type="submit" name="submit" id="submit">Checkout</button>
+    </form>
+    <footer>
+        <div class="address">
+            <p>Fright Train</p>
+            <p>Elm Street 66</p>
+            <p>Belfast, UK</p>
+            <p>sales@frighttrain.com</p>
+        </div>
+        <div class="contacts">
+            <div class="facebook">
+                <a href="https://facebook.com"><img id="icon" src="/Final Project/assets/icons/fbicon.png" width="48px" height="48px"></a>
+            </div>
+            <div class="instagram">
+                <a href="https://instagram.com"><img id="icon" src="/Final Project/assets/icons/icons8-instagram-48.png" width="48px" height="48px"></a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com"><img id="icon" src="/Final Project/assets/icons/icons8-twitter-48.png" width="48px" height="48px"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function infoSent() {
+            return (
+                alert('Thanks for your order!')
+            )
+        }
+    </script>
+</body>
+</html>

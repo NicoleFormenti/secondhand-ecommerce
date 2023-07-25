@@ -98,7 +98,7 @@ function pageOne() {
         h4.innerHTML = `Price in £: ${firstpage[i].price}`;
         h3.appendChild(h4);
         let btn = document.createElement('button'); 
-        btn.innerHTML = `<button>Add to cart</button>`;
+        btn.innerHTML = `Add to cart`;
         h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(oneUl);
@@ -119,7 +119,6 @@ function pageTwo() {
         ul.innerHTML = '';
         let h1 = document.createElement('h1');
         h1.classList.add('titles');
-        h1.classList.add('titles');
         h1.innerHTML = `${secondpage[i].title}`;
         newUl.appendChild(h1);
         let img = document.createElement('img');
@@ -135,12 +134,12 @@ function pageTwo() {
         h4.innerHTML = `Price in £: ${secondpage[i].price}`;
         h3.appendChild(h4);
         let btn = document.createElement('button'); 
-        btn.innerHTML = `<button id="b">Add to cart</button>`;
+        btn.innerHTML = `Add to cart`;
         h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(newUl);
 }
-//search bar : 
+//search bar : (messing list up and only working on current page)
 function searchMovie() {
     let input = document.getElementById('searchbar').value
     input=input.toLowerCase();
@@ -151,7 +150,8 @@ function searchMovie() {
             search_title[i].style.display="none";
         }
         else {
-            search_title[i].style.display="list-item";                 
+            search_title[i].style.display="flex";       
+            search_title[i].style.flexdirection = "column";          
         }
     }
 }
@@ -163,10 +163,14 @@ function searchMovie() {
 
 //add to cart, the price should appear here: <span class="total-count"></span>
 let element = document.getElementsByClassName('addcart');
+let itemtoadd = [];
 for( let i = 0; i < element.length; i++ ){
-    element[i].addEventListener("click", function populateCart(){
-    localStorage.setItem('title', movieList[i].title);
-    localStorage.setItem('price', movieList[i].price);
+    element[i].addEventListener("click", () => {
+        console.log(JSON.stringify(movieList[i]));
+        itemtoadd.push(JSON.stringify(movieList[i]));
+        console.log(JSON.stringify(itemtoadd))
+    localStorage.setItem('title', JSON.stringify(itemtoadd));
+    //localStorage.setItem('price', movieList[i].price);
     console.log(localStorage);
     let p = document.getElementsByClassName('total-count');
     console.log(p);
