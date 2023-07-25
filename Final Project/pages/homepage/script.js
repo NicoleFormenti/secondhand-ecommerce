@@ -169,20 +169,24 @@ for( let i = 0; i < element.length; i++ ){
         console.log(JSON.stringify(movieList[i]));
         itemtoadd.push(JSON.stringify(movieList[i]));
         console.log(JSON.stringify(itemtoadd))
-    localStorage.setItem('title', JSON.stringify(itemtoadd));
-    //localStorage.setItem('price', movieList[i].price);
-    console.log(localStorage);
-    let p = document.getElementsByClassName('total-count');
-    console.log(p);
-    p.innerHTML = `${movieList[i].price}`;
-  }); //so far, this sends title and price in the local storage, but still separate
+        localStorage.setItem('title', JSON.stringify(itemtoadd));
+        console.log(localStorage);
+        let p = document.getElementsByClassName('total-count');
+        console.log(p);
+        p.innerHTML = `${movieList[i].price}`;
+  });
 }
-// view what's in the cart, getting the items from the storage
-function viewCart() {
-    localStorage.getItem('title', movieList.title);
-    localStorage.getItem('price', movieList.price);
-    console.log(localStorage);
+//see cart
+let cart = document.getElementsByClassName("btn btn-primary");
+let itemtosee = [];
+for (i = 0; i < cart.length; i++) {
+    cart[i].addEventListener("click", () => {
+        itemtosee.pop(JSON.stringify(movieList[i]));
+        localStorage.getItem('title', JSON.stringify(movieList[i]));
+        console.log(localStorage);
+    });
 }
+
 //clear cart
 function clearCart() {
     localStorage.clear();

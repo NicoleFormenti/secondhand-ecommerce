@@ -37,6 +37,12 @@ header {
     font-size: larger;
     margin-top: 50px;
 }
+.checkout {
+    font-size: 24px;
+    color: var(--crimson);
+    text-decoration: underline;
+    margin-top: 25px;
+}
 .addcart {
     width: 200px;
 }
