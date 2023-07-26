@@ -20,6 +20,11 @@ header {
     text-align: center;
     flex-direction: row;
 }
+span {
+    color: var(--crimson);
+    width: 20px;
+    font-size: larger;
+}
 #btn_cart   {
     width: 80px;
     height: 80px;

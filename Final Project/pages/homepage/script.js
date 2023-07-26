@@ -99,6 +99,7 @@ function pageOne() {
         h3.appendChild(h4);
         let btn = document.createElement('button'); 
         btn.innerHTML = `Add to cart`;
+        btn.classList.add('addcart');
         h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(oneUl);
@@ -135,6 +136,7 @@ function pageTwo() {
         h3.appendChild(h4);
         let btn = document.createElement('button'); 
         btn.innerHTML = `Add to cart`;
+        btn.classList.add('addcart');
         h4.appendChild(btn);
     }
     document.getElementById('dvd_list').append(newUl);
@@ -157,37 +159,37 @@ function searchMovie() {
 }
 
 // CART
-// add to cart: onclick event that calls a function with a localStorage.setItem('movieList', 'title')
 // remove from cart: localStorage.removeItem('title')
-// clear cart: localStorage.clear()
 
-//add to cart, the price should appear here: <span class="total-count"></span>
+// add to cart: onclick event that calls a function with a localStorage.setItem, item and length of the storage visible in console log
 let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
+const count = document.querySelector('#cart-count');
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", () => {
-        console.log(JSON.stringify(movieList[i]));
         itemtoadd.push(JSON.stringify(movieList[i]));
-        console.log(JSON.stringify(itemtoadd))
         localStorage.setItem('title', JSON.stringify(itemtoadd));
-        console.log(localStorage);
-        let p = document.getElementsByClassName('total-count');
-        console.log(p);
-        p.innerHTML = `${movieList[i].price}`;
-  });
+        let data = JSON.parse(localStorage.getItem('title'));
+        let len = data.length;
+        console.log(data);
+        console.log(len);
+        //so far, this function stores the item in the local storage once we click on add to item, 
+        //and then shows it in the console once the cart button is clicked
+        //display it on the cart button:
+        let p = document.createElement('p');
+        p.innerHTML = `(${len})`;;
+        count.appendChild(p);
+  }); 
 }
-//see cart
+//see cart - this shows what's in the local storage
 let cart = document.getElementsByClassName("btn btn-primary");
-let itemtosee = [];
 for (i = 0; i < cart.length; i++) {
     cart[i].addEventListener("click", () => {
-        itemtosee.pop(JSON.stringify(movieList[i]));
-        localStorage.getItem('title', JSON.stringify(movieList[i]));
-        console.log(localStorage);
+        
     });
 }
 
-//clear cart
+// clear cart: localStorage.clear()
 function clearCart() {
     localStorage.clear();
     console.log(localStorage);
