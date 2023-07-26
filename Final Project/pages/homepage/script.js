@@ -177,7 +177,7 @@ for( let i = 0; i < element.length; i++ ){
         //and then shows it in the console once the cart button is clicked
         //display it on the cart button:
         let p = document.createElement('p');
-        p.innerHTML = `(${len})`;;
+        p.innerHTML = `(${len})`; //this displays values next to each other instead of substituting the first one
         count.appendChild(p);
   }); 
 }
@@ -192,5 +192,8 @@ for (i = 0; i < cart.length; i++) {
 // clear cart: localStorage.clear()
 function clearCart() {
     localStorage.clear();
-    console.log(localStorage);
+    let p = document.createElement('p');
+    p.innerHTML = `(0)`;
+    count.append(p);
+    
 }
