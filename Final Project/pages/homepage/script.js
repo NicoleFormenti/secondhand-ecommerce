@@ -175,8 +175,8 @@ function searchMovie() {
 let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
 const count = document.querySelector('#cart-count');
-let p = document.createElement('p');
-if (document.getElementById('counter' !== undefined)) {
+let p = document.createElement('p'); //element created so that the array length can be displayed under the basket
+if (document.getElementById('counter' !== undefined)) { //this makes the last value be displayed by itself
     let oldP = document.getElementById('counter');
     oldP.innerText = '';
 }
@@ -185,7 +185,6 @@ for( let i = 0; i < element.length; i++ ){
         
         itemtoadd.push(JSON.stringify(movieList[i]));
         localStorage.setItem('movie', JSON.stringify(itemtoadd));
-        console.log(itemtoadd);
         //once clicked, the button should say 'added to cart' and change color
         element[i].innerHTML = 'Added to cart';
         element[i].style.color = 'black';
@@ -212,9 +211,8 @@ for (i = 0; i < cart.length; i++) {
 }
 
 // clear cart: localStorage.clear(), getting the add to cart btn back to normal, displaying 0 in the innerhtml
-
 function clearCart() {
-    if (document.getElementById('counter' !== undefined)) {
+    if (document.getElementById('counter' !== undefined)) { //displaying (0) under the basket
         let oldP = document.getElementById('counter');
         oldP.innerText = '';
     }
@@ -237,8 +235,16 @@ function clearCart() {
 let cancel = document.getElementsByClassName('removecart');
 for (i = 0; i < cancel.length; i++){
     cancel[i].addEventListener("click", () => {
-        console.log('worked');
-        //localStorage.removeItem('movie');
+        itemtoadd = [];
+        localStorage.removeItem(JSON.stringify(itemtoadd)); //this removes the item from the storage
+        console.log(localStorage);
+        //the number under the basket must change
+        //the added to cart button goes back to its original text:
+        for (i = 0; i < element.length; i++){
+            element[i].innerHTML = 'Add to cart';
+            element[i].style.color = 'white';
+            element[i].style.backgroundColor = '#696969';
+            }
 })
 }
 
