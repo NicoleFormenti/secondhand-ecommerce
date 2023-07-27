@@ -224,27 +224,38 @@ function clearCart() {
     itemtoadd = [];
     window.localStorage.clear();
     console.log(localStorage);
-    let oldP = document.getElementById('counter');
-    oldP.innerText = '(0)';
     p.id = 'counter';
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
+    let oldP = document.getElementById('counter');
+    oldP.innerText = '(0)';
 }
 // remove from cart: localStorage.removeItem('movie')
 let cancel = document.getElementsByClassName('removecart');
+let timesClicked = 0;
 for (i = 0; i < cancel.length; i++){
     cancel[i].addEventListener("click", () => {
         itemtoadd = [];
+        itemtoremove = [];
         localStorage.removeItem(JSON.stringify(itemtoadd)); //this removes the item from the storage
         console.log(localStorage);
         //the number under the basket must change
-        //the added to cart button goes back to its original text:
+        //the added to cart button goes back to its original text. problem: all the buttons change instead of only the concerned one
         for (i = 0; i < element.length; i++){
             element[i].innerHTML = 'Add to cart';
             element[i].style.color = 'white';
             element[i].style.backgroundColor = '#696969';
             }
+            //p.innerHTML = timesClicked;
 })
 }
-
+// display function: once you click on the cart, the original ul gets replace by a list of the items you have in the cart
+let basket = document.querySelector('#btn_cart');
+itemtoadd = [];
+basket.addEventListener("click", () => {
+    ul.innerHTML = JSON.stringify(itemtoadd);
+    let a = document.createElement('a'); //link to checkout page
+    a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
+    ul.appendChild(a);
+})
