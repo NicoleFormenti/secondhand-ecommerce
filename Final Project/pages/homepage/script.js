@@ -175,6 +175,11 @@ function searchMovie() {
 let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
 const count = document.querySelector('#cart-count');
+let p = document.createElement('p');
+if (document.getElementById('counter' !== undefined)) {
+    let oldP = document.getElementById('counter');
+    oldP.innerText = '';
+}
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", () => {
         
@@ -192,13 +197,9 @@ for( let i = 0; i < element.length; i++ ){
         console.log(len);
         //so far, this function stores the item in the local storage once we click on add to item, 
         //display it on the cart button:
-        let p = document.createElement('p');
+        p.id = 'counter';
         p.innerHTML = `(${len})`;
         count.appendChild(p);
-        //this displays all the value instead of replacing the value before, conditional:
-        if (p.innerHTML.includes(len)) {
-            //display only last value?!
-        }
         
   }); 
 }
@@ -211,6 +212,7 @@ for (i = 0; i < cart.length; i++) {
 }
 
 // clear cart: localStorage.clear(), getting the add to cart btn back to normal, displaying 0 in the innerhtml
+
 function clearCart() {
     for (i = 0; i < element.length; i++){
     element[i].innerHTML = 'Add to cart';
@@ -220,12 +222,18 @@ function clearCart() {
     itemtoadd = [];
     window.localStorage.clear();
     console.log(localStorage);
+    let oldP = document.getElementById('counter');
+    oldP.innerText = '';
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
 }
-// remove from cart: localStorage.removeItem('title')
-let cancel = document.querySelector('.removecart');
-cancel.addEventListener("click", () => {
-    console.log('worked');
+// remove from cart: localStorage.removeItem('movie')
+let cancel = document.getElementsByClassName('removecart');
+for (i = 0; i < cancel.length; i++){
+    cancel[i].addEventListener("click", () => {
+        console.log('worked');
+        //localStorage.removeItem('movie');
 })
+}
+
