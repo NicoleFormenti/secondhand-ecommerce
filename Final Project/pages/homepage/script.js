@@ -214,6 +214,10 @@ for (i = 0; i < cart.length; i++) {
 // clear cart: localStorage.clear(), getting the add to cart btn back to normal, displaying 0 in the innerhtml
 
 function clearCart() {
+    if (document.getElementById('counter' !== undefined)) {
+        let oldP = document.getElementById('counter');
+        oldP.innerText = '';
+    }
     for (i = 0; i < element.length; i++){
     element[i].innerHTML = 'Add to cart';
     element[i].style.color = 'white';
@@ -223,7 +227,8 @@ function clearCart() {
     window.localStorage.clear();
     console.log(localStorage);
     let oldP = document.getElementById('counter');
-    oldP.innerText = '';
+    oldP.innerText = '(0)';
+    p.id = 'counter';
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
