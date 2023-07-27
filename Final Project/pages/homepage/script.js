@@ -158,23 +158,24 @@ function searchMovie() {
     }
 }
 
-// CART
-// remove from cart: localStorage.removeItem('title')
-
 // add to cart: onclick event that calls a function with a localStorage.setItem, item and length of the storage visible in console log
 let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
 const count = document.querySelector('#cart-count');
+const added = document.querySelector('.addcart');
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", () => {
         itemtoadd.push(JSON.stringify(movieList[i]));
         localStorage.setItem('title', JSON.stringify(itemtoadd));
+        //once clicked, the button should say 'added to cart' and change color
+        added.innerHTML = 'Added to cart';
+        added.style.backgroundColor = 'yellow';
+        added.style.color = 'black';
         let data = JSON.parse(localStorage.getItem('title'));
         let len = data.length;
         console.log(data);
         console.log(len);
         //so far, this function stores the item in the local storage once we click on add to item, 
-        //and then shows it in the console once the cart button is clicked
         //display it on the cart button:
         let p = document.createElement('p');
         p.innerHTML = `(${len})`; //this displays values next to each other instead of substituting the first one
@@ -185,7 +186,6 @@ for( let i = 0; i < element.length; i++ ){
 let cart = document.getElementsByClassName("btn btn-primary");
 for (i = 0; i < cart.length; i++) {
     cart[i].addEventListener("click", () => {
-        
     });
 }
 
@@ -195,5 +195,5 @@ function clearCart() {
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
-    
 }
+// remove from cart: localStorage.removeItem('title')
