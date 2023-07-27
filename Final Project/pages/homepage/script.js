@@ -208,17 +208,18 @@ for (i = 0; i < cart.length; i++) {
     });
 }
 
-// clear cart: localStorage.clear()
+// clear cart: localStorage.clear(), getting the add to cart btn back to normal, displaying 0 in the innerhtml
 function clearCart() {
     localStorage.clear();
     console.log(localStorage);
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
+    for (i = 0; i < element.length; i++){
     element[i].innerHTML = 'Add to cart';
     element[i].style.color = 'white';
     element[i].style.backgroundColor = '#696969';
-
+    }
 }
 // remove from cart: localStorage.removeItem('title')
 let cancel = document.querySelector('.removecart');
