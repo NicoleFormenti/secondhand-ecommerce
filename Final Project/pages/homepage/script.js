@@ -72,7 +72,7 @@ function sortPrice() {
     }
 }
 
-//pagination:
+//pagination: sliced the array and appended to the ul element
 function pageOne() {
     const page = 1;
     const step = 10;
@@ -191,14 +191,20 @@ for( let i = 0; i < element.length; i++ ){
         //so far, this function stores the item in the local storage once we click on add to item, 
         //display it on the cart button:
         let p = document.createElement('p');
-        p.innerHTML = `(${len})`; //this displays values next to each other instead of substituting the first one
+        p.innerHTML = `(${len})`;
         count.appendChild(p);
+        //this displays all the value instead of replacing the value before, conditional:
+        if (p.innerHTML.includes(len)) {
+            //display only last value?!
+        }
+        
   }); 
 }
 //see cart - this shows what's in the local storage
 let cart = document.getElementsByClassName("btn btn-primary");
 for (i = 0; i < cart.length; i++) {
     cart[i].addEventListener("click", () => {
+
     });
 }
 
@@ -209,6 +215,10 @@ function clearCart() {
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
+    element[i].innerHTML = 'Add to cart';
+    element[i].style.color = 'white';
+    element[i].style.backgroundColor = '#696969';
+
 }
 // remove from cart: localStorage.removeItem('title')
 let cancel = document.querySelector('.removecart');
