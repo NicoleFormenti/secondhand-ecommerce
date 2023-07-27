@@ -1,6 +1,7 @@
 const ul = document.querySelector('#dvd_list');
 
 //this displays the list of movies with a title, img, year, quantity available and price
+//add to cart and remove from cart buttons need to be appended too
 
 function appendChild(title, year, quantity, price, imageSource) {
     const h1 = document.createElement('h1');
@@ -9,6 +10,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     const h4 = document.createElement('h4');
     const img = document.createElement('img');
     const btn = document.createElement('button');    
+    const remove = document.createElement('button');
     h1.classList.add('titles');
     h1.innerHTML = title;
     h2.innerHTML = year;
@@ -17,6 +19,8 @@ function appendChild(title, year, quantity, price, imageSource) {
     img.src = imageSource;
     btn.innerHTML = 'Add to cart';
     btn.classList.add('addcart');
+    remove.innerHTML = 'Remove from cart';
+    remove.classList.add('removecart');
     h2.insertAdjacentText = h2.insertAdjacentText('afterbegin', 'Production Year:');
     h3.insertAdjacentText = h3.insertAdjacentText('afterbegin', 'Available Stock:');
     h4.insertAdjacentText = h4.insertAdjacentText('afterbegin', 'Price in £:');
@@ -27,6 +31,7 @@ function appendChild(title, year, quantity, price, imageSource) {
     h2.appendChild(h3);
     h3.appendChild(h4);
     h4.appendChild(btn);
+    h4.appendChild(remove);
 
     //only 10 movies should appear on page 1 so we splice the array
     //console.log(movieList.slice(0, 10));
@@ -101,6 +106,10 @@ function pageOne() {
         btn.innerHTML = `Add to cart`;
         btn.classList.add('addcart');
         h4.appendChild(btn);
+        let remove = document.createElement('button');
+        remove.innerHTML = 'Remove from cart';
+        h4.appendChild(remove);
+        remove.classList.add('removecart');
     }
     document.getElementById('dvd_list').append(oneUl);
 }
@@ -138,6 +147,10 @@ function pageTwo() {
         btn.innerHTML = `Add to cart`;
         btn.classList.add('addcart');
         h4.appendChild(btn);
+        let remove = document.createElement('button');
+        remove.innerHTML = 'Remove from cart';
+        h4.appendChild(remove);
+        remove.classList.add('removecart');
     }
     document.getElementById('dvd_list').append(newUl);
 }
