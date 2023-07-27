@@ -300,7 +300,7 @@ footer  {
     h1 {
         display: flex;
         width: 375px;
-        height: 400px;
+        height: 500px;
         align-items: flex-start;
         text-align: justify;
         flex-direction: column;

@@ -154,7 +154,7 @@ function pageTwo() {
     }
     document.getElementById('dvd_list').append(newUl);
 }
-//search bar : (messing list up and only working on current page)
+//search bar : (only working on current page)
 function searchMovie() {
     let input = document.getElementById('searchbar').value
     input=input.toLowerCase();
@@ -175,15 +175,15 @@ function searchMovie() {
 let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
 const count = document.querySelector('#cart-count');
-const added = document.querySelector('.addcart');
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", () => {
         itemtoadd.push(JSON.stringify(movieList[i]));
         localStorage.setItem('title', JSON.stringify(itemtoadd));
         //once clicked, the button should say 'added to cart' and change color
-        added.innerHTML = 'Added to cart';
-        added.style.backgroundColor = 'yellow';
-        added.style.color = 'black';
+        element[i].innerHTML = 'Added to cart';
+        element[i].style.color = 'black';
+        element[i].style.backgroundColor = 'yellow';
+        //get the item from the storage
         let data = JSON.parse(localStorage.getItem('title'));
         let len = data.length;
         console.log(data);
@@ -205,8 +205,13 @@ for (i = 0; i < cart.length; i++) {
 // clear cart: localStorage.clear()
 function clearCart() {
     localStorage.clear();
+    console.log(localStorage);
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
 }
 // remove from cart: localStorage.removeItem('title')
+let cancel = document.querySelector('.removecart');
+cancel.addEventListener("click", () => {
+    console.log('worked');
+})
