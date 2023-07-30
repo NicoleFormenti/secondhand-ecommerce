@@ -175,6 +175,7 @@ let element = document.getElementsByClassName('addcart');
 let itemtoadd = [];
 const count = document.querySelector('#cart-count');
 let p = document.createElement('p'); //element created so that the array length can be displayed under the basket
+let cancel = document.getElementsByClassName('removecart');
 if (document.getElementById('counter' !== undefined)) { //this makes the last value be displayed by itself
     let oldP = document.getElementById('counter');
     oldP.innerText = '';
@@ -197,7 +198,6 @@ for( let i = 0; i < element.length; i++ ){
         p.id = 'counter';
         p.innerHTML = `(${len})`;
         count.appendChild(p);
-        
   }); 
 }
 
@@ -223,8 +223,7 @@ function clearCart() {
         }
 }
 // remove from cart: localStorage.removeItem('movie')
-let cancel = document.getElementsByClassName('removecart');
-let timesClicked = 0;
+//let cancel = document.getElementsByClassName('removecart');
 for (i = 0; i < cancel.length; i++){
     cancel[i].addEventListener("click", () => {
         itemtoadd = [];
@@ -238,16 +237,14 @@ for (i = 0; i < cancel.length; i++){
             element[i].style.color = 'white';
             element[i].style.backgroundColor = '#696969';
             }
-            //p.innerHTML = timesClicked;
 })
 }
 // display function: once you click on the cart, the original ul gets replace by a list of the items you have in the cart
 let basket = document.getElementsByClassName('btn btn-primary');
-
+itemtoadd = [];
 for (i = 0; i < basket.length; i++) {
     basket[i].addEventListener("click", () => {
-        
-        ul.innerHTML = JSON.parse(itemtoadd);
+        ul.innerHTML = `<div>${itemtoadd}</div>`;
         //link to checkout page
         let a = document.createElement('a');
         a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
