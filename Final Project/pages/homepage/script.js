@@ -202,34 +202,27 @@ for( let i = 0; i < element.length; i++ ){
         
   }); 
 }
-//see cart - this shows what's in the local storage
-let cart = document.getElementsByClassName("btn btn-primary");
-for (i = 0; i < cart.length; i++) {
-    cart[i].addEventListener("click", () => {
-
-    });
-}
 
 // clear cart: localStorage.clear(), getting the add to cart btn back to normal, displaying 0 in the innerhtml
 function clearCart() {
-    if (document.getElementById('counter' !== undefined)) { //displaying (0) under the basket
-        let oldP = document.getElementById('counter');
-        oldP.innerText = '';
-    }
-    for (i = 0; i < element.length; i++){
-    element[i].innerHTML = 'Add to cart';
-    element[i].style.color = 'white';
-    element[i].style.backgroundColor = '#696969';
-    }
     itemtoadd = [];
     window.localStorage.clear();
     console.log(localStorage);
-    p.id = 'counter';
     let p = document.createElement('p');
     p.innerHTML = `(0)`;
     count.append(p);
+    p.id = 'counter';
     let oldP = document.getElementById('counter');
-    oldP.innerText = '(0)';
+    oldP.innerText = '';
+    if (document.getElementById('counter' !== undefined)) { //displaying (0) under the basket
+        let oldP = document.getElementById('counter');
+        oldP.innerText = '(0)';
+    }
+    for (i = 0; i < element.length; i++){
+        element[i].innerHTML = 'Add to cart';
+        element[i].style.color = 'white';
+        element[i].style.backgroundColor = '#696969';
+        }
 }
 // remove from cart: localStorage.removeItem('movie')
 let cancel = document.getElementsByClassName('removecart');
@@ -251,11 +244,15 @@ for (i = 0; i < cancel.length; i++){
 })
 }
 // display function: once you click on the cart, the original ul gets replace by a list of the items you have in the cart
-let basket = document.querySelector('#btn_cart');
-itemtoadd = [];
-basket.addEventListener("click", () => {
-    ul.innerHTML = JSON.stringify(itemtoadd);
-    let a = document.createElement('a'); //link to checkout page
-    a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
-    ul.appendChild(a);
-})
+let basket = document.getElementsByClassName('btn btn-primary');
+
+for (i = 0; i < basket.length; i++) {
+    basket[i].addEventListener("click", () => {
+        
+        ul.innerHTML = JSON.parse(itemtoadd);
+        //link to checkout page
+        let a = document.createElement('a');
+        a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
+        ul.appendChild(a);
+    })
+}
