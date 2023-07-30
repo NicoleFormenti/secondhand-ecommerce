@@ -38,7 +38,6 @@ function appendChild(title, year, quantity, price, imageSource) {
     return movieList.slice(0, 10);
 
 }
-    
 for (
     let i = 0;
     i < 10;
@@ -182,7 +181,6 @@ if (document.getElementById('counter' !== undefined)) { //this makes the last va
 }
 for( let i = 0; i < element.length; i++ ){
     element[i].addEventListener("click", () => {
-        
         itemtoadd.push(JSON.stringify(movieList[i]));
         localStorage.setItem('movie', JSON.stringify(itemtoadd));
         //once clicked, the button should say 'added to cart' and change color
