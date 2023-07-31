@@ -153,7 +153,7 @@ function pageTwo() {
     }
     document.getElementById('dvd_list').append(newUl);
 }
-//search bar : (only working on current page)
+//search bar
 function searchMovie() {
     let input = document.getElementById('searchbar').value
     input=input.toLowerCase();
@@ -193,7 +193,6 @@ for( let i = 0; i < element.length; i++ ){
         let len = data.length;
         console.log(data);
         console.log(len);
-        //so far, this function stores the item in the local storage once we click on add to item, 
         //display it on the cart button:
         p.id = 'counter';
         p.innerHTML = `(${len})`;
@@ -212,7 +211,7 @@ function clearCart() {
     p.id = 'counter';
     let oldP = document.getElementById('counter');
     oldP.innerText = '';
-    if (document.getElementById('counter' !== undefined)) { //displaying (0) under the basket
+    if (document.getElementById('counter' !== undefined)) { 
         let oldP = document.getElementById('counter');
         oldP.innerText = '(0)';
     }
@@ -240,14 +239,38 @@ for (i = 0; i < cancel.length; i++){
 })
 }
 // display function: once you click on the cart, the original ul gets replace by a list of the items you have in the cart
+//issue: displays only one item
 let basket = document.getElementsByClassName('btn btn-primary');
 itemtoadd = [];
 for (i = 0; i < basket.length; i++) {
     basket[i].addEventListener("click", () => {
-        ul.innerHTML = `<div>${itemtoadd}</div>`;
+        itemtoadd.map((item, i) => {
+            let p = document.createElement('h4');
+            p.id = 'pricestyle';
+            ul.id = 'basketlist';
+
+            //console.log(item.toString().split(',', ':'));
+            let firststring = item.toString().split(',');
+            //console.log(firststring);
+            firststring.map((items, i) => {
+                //console.log(item.toString().split(',', ':'));
+                let secondstring = items.toString().split(':');
+                console.log(secondstring);
+                //console.log(secondstring[1]);
+                if (secondstring[0].includes('title')) {
+                    console.log(secondstring[1]);
+                    return ul.innerHTML = secondstring[1];    
+                }
+                if (secondstring[0].includes('price')) {
+                    ul.appendChild(p);
+                    return p.innerHTML = secondstring[1];
+                }
+            })
+        })
         //link to checkout page
         let a = document.createElement('a');
         a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
         ul.appendChild(a);
     })
 }
+

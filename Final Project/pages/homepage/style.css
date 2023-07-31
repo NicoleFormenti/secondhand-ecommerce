@@ -145,12 +145,13 @@ a:hover:visited {
 }
 h1 {
     width: 500px;
-    height: 700px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
+    color: var(--crimson);
 }
 h2 {
     font-size: 22px;
@@ -228,6 +229,15 @@ footer  {
     flex-direction: row;
     column-gap: 50px;
 }
+#basketlist {
+    color: var(--crimson);
+    font-size: 48px;
+    display: flex;
+    flex-direction: column;
+}
+#pricestyle {
+    color: var(--white);
+}
 
 
 @media screen and (max-width: 375px) {
@@ -304,6 +314,7 @@ footer  {
         align-items: flex-start;
         text-align: justify;
         flex-direction: column;
+        color: var(--crimson);
         
     }
     footer {
@@ -320,6 +331,15 @@ footer  {
         padding: 0px;
         width: 130px;
         height: 200px
+    }
+    #basketlist {
+        color: var(--crimson);
+        font-size: 48px;
+        display: flex;
+        flex-direction: column;
+    }
+    #pricestyle {
+        color: var(--white);
     }
     
 }
