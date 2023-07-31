@@ -32,6 +32,15 @@ function appendChild(title, year, quantity, price, imageSource) {
     h3.appendChild(h4);
     h4.appendChild(btn);
     h4.appendChild(remove);
+    if (quantity == 1){
+        return btn.innerHTML = 'Only 1 left!';
+    }
+    if (quantity == 0) {
+        btn.style.backgroundColor = 'crimson';
+        remove.style.display = 'none';
+        return btn.innerHTML = 'Out of stock';
+        
+    }
 
     //only 10 movies should appear on page 1 so we splice the array
     //console.log(movieList.slice(0, 10));
@@ -109,6 +118,7 @@ function pageOne() {
         remove.innerHTML = 'Remove from cart';
         h4.appendChild(remove);
         remove.classList.add('removecart');
+
     }
     document.getElementById('dvd_list').append(oneUl);
 }
@@ -119,7 +129,7 @@ function pageTwo() {
     const step = 10;
     const start = page * step - step;
     const end = start + step;
-    
+
     const secondpage = movieList.slice(start, end);
     console.log(secondpage);
     let newUl = document.createElement('ul');
@@ -152,6 +162,7 @@ function pageTwo() {
         remove.classList.add('removecart');
     }
     document.getElementById('dvd_list').append(newUl);
+    
 }
 //search bar
 function searchMovie() {

@@ -10,14 +10,14 @@ let movieList = [
         title: 'Scream',
         imageSource: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQtWLu03bB5dBRlp70OYqeicYg9HXQ0yuaK3qZBnqACFxZ_SM5-',
         year: '1996',
-        quantity: '2',
+        quantity: '1',
         price: '5.90',
     },
     {
         title: 'IT chapter 1',
         imageSource: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQeQ26eky-Cp_SXUJXxlgQTQEEc9esN9ctc7kXlaF8yzdvl2E3z',
         year: '2017',
-        quantity: '1',
+        quantity: '0',
         price: '5.90',
     },
     {
@@ -87,7 +87,7 @@ let movieList = [
         title: 'The Conjouring',
         imageSource: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSPN0jFXkjp_5YGSBfMIWZb5VXfoECC9PFWmBci9gc4NhbUUa3m',
         year: '2013',
-        quantity: '1',
+        quantity: '4',
         price: '7.50',
     },
     {
@@ -101,14 +101,14 @@ let movieList = [
         title: 'Candyman',
         imageSource: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ08hoyqZEdtERnucK5LjnkhA0MHDptkfxOy6BoRpJh__a94HTp',
         year: '1992',
-        quantity: '1',
+        quantity: '2',
         price: '7.50',
     },
     {
         title: 'The Last House on the Left',
         imageSource: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWnxgwD3hEppfX_DUWeRoMmxGf5cxivs5yxi1_ssFiOkKOL79R',
         year: '1972',
-        quantity: '0',
+        quantity: '1',
         price: '7.50',
     },
     {
@@ -122,7 +122,7 @@ let movieList = [
         title: 'Midsommar',
         imageSource: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS7TC3aqR6kv9_4b9P6DZWqJPkuhPJAC26omhgaWvPlfkVqJbdj',
         year: '2019',
-        quantity: '0',
+        quantity: '1',
         price: '10.50',
     },
     {
