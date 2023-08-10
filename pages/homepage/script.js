@@ -280,7 +280,7 @@ for (i = 0; i < basket.length; i++) {
         })
         //link to checkout page
         let a = document.createElement('a');
-        a.innerHTML = `<a class="checkout" href="checkout.html">Checkout now</a>`;
+        a.innerHTML = `<a class="checkout" href="/pages/homepage/checkout.html">Checkout now</a>`;
         ul.appendChild(a);
     })
 }
